@@ -1,0 +1,463 @@
+:root {
+    --primary-color: #FF6F61; /* Merah Oranye Cerah */
+    --secondary-color: #FFD700; /* Kuning Emas */
+    --accent-color: #6A5ACD; /* Biru Ungu */
+    --background-light: #F0F8FF; /* Biru Langit Muda */
+    --text-color: #333;
+    --success-color: #28A745; /* Hijau Sukses */
+    --error-color: #DC3545; /* Merah Error */
+    --progress-bar-color: #00BFFF; /* Biru Langit Cerah */
+    --summary-text-color: #555; /* Warna teks umum untuk ringkasan */
+    --summary-heading-color: var(--accent-color); /* Warna heading detail */
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(to right bottom, var(--background-light), #ADD8E6); /* Gradien Biru Muda */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text-color);
+    overflow-y: auto; /* Izinkan body untuk scroll jika konten melebihi layar */
+    overflow-x: hidden; /* Pastikan tidak ada scroll horizontal */
+    /* Penting: Gunakan 100dvh untuk penanganan keyboard mobile yang lebih baik */
+    height: 100dvh;
+    /* Tambahkan transition untuk kelancaran perubahan layout saat keyboard muncul */
+    transition: height 0.3s ease;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    /* overflow: hidden; DIHAPUS - biarkan container mengatur overflow sendiri */
+    height: auto;
+    /* Max-height untuk container, di mobile akan diatasi di media query */
+    max-height: 100%; /* Biarkan container tumbuh hingga 100% dari body */
+    display: block;
+}
+
+.screen {
+    display: none;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1, h2, h3 {
+    font-family: 'Chewy', cursive;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+h3 {
+    font-size: 1.8em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--summary-heading-color);
+}
+
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Tombol Pilihan Faktor */
+.selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.selection-grid button {
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 20px 10px;
+    font-size: 1.8em;
+    font-family: 'Chewy', cursive;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.selection-grid button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Kuis Screen Header */
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.question-number {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 8px 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-weight: bold;
+}
+
+.timer-display {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-weight: bold;
+}
+
+/* Kuis Screen */
+.progress-container {
+    width: 100%;
+    background-color: #eee;
+    border-radius: 10px;
+    height: 15px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: var(--progress-bar-color);
+    border-radius: 10px;
+    transition: width 0.3s ease-in-out;
+}
+
+.question-box {
+    background-color: var(--background-light);
+    border: 3px dashed var(--accent-color);
+    border-radius: 15px;
+    padding: 30px 20px;
+    margin-bottom: 25px;
+}
+
+.question {
+    font-size: 2.8em;
+    font-family: 'Chewy', cursive;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+#answer-input {
+    width: calc(100% - 40px);
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border: 2px solid var(--accent-color);
+    border-radius: 10px;
+    font-size: 1.5em;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-color);
+}
+
+#answer-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(255, 111, 97, 0.4);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 30px;
+    font-size: 1.3em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+button:hover:not([disabled]) {
+    background-color: #e55c50;
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.feedback {
+    font-size: 1.2em;
+    margin-top: 15px;
+    font-weight: bold;
+    min-height: 20px; /* Menjaga tinggi agar layout tidak bergeser */
+}
+
+.feedback.correct {
+    color: var(--success-color);
+}
+
+.feedback.incorrect {
+    color: var(--error-color);
+}
+
+/* RESULT SCREEN SPECIFIC STYLES */
+
+#result-screen.active {
+    /* Hapus display: flex, flex-direction, height, overflow dari sini */
+    /* Agar konten di dalamnya mengalir secara normal dan container induk (body/container) yang scroll */
+    display: block; /* Kembalikan ke display block normal */
+    height: auto; /* Biarkan tingginya menyesuaikan konten */
+    overflow: visible; /* Biarkan overflow mengalir ke parent */
+}
+
+.summary-box {
+    background-color: var(--secondary-color);
+    color: var(--summary-text-color);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    font-size: 1.3em;
+    font-weight: bold;
+    /* flex-shrink: 0; DIHAPUS karena result-screen bukan flex lagi */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.summary-box p span {
+    color: var(--primary-color);
+    font-weight: bolder;
+}
+
+
+.motivation {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+    /* flex-shrink: 0; DIHAPUS */
+}
+
+.result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    /* flex-shrink: 0; DIHAPUS */
+}
+
+.result-actions button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    flex-grow: 0;
+}
+
+#retry-button {
+    background-color: var(--accent-color);
+}
+
+#retry-button:hover:not([disabled]) {
+    background-color: #5d4aae;
+}
+
+#practice-again-button {
+    background-color: #20B2AA;
+}
+
+#practice-again-button:hover:not([disabled]) {
+    background-color: #1a8e87;
+}
+
+.detailed-results-container {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: left;
+    margin-bottom: 15px;
+    /* flex-grow: 1; DIHAPUS */
+    /* overflow-y: auto; DIHAPUS */
+    /* flex-shrink: 1; DIHAPUS */
+    /* max-height: 100%; DIHAPUS */
+
+    /* Scrollbar styling juga tidak diperlukan di sini karena parent yang akan scroll */
+    scrollbar-width: auto; /* Reset */
+    scrollbar-color: auto; /* Reset */
+}
+
+/* Webkit scrollbar styling juga DIHAPUS */
+.detailed-results-container::-webkit-scrollbar { display: none; }
+.detailed-results-container::-webkit-scrollbar-track { display: none; }
+.detailed-results-container::-webkit-scrollbar-thumb { display: none; }
+
+
+.result-item {
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1em;
+    color: var(--text-color);
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-item span {
+    font-weight: bold;
+}
+
+.result-item.correct-result {
+    color: var(--success-color);
+}
+
+.result-item.incorrect-result {
+    color: var(--error-color);
+}
+
+.incorrect-answer-detail {
+    font-size: 0.9em;
+    color: #888;
+    margin-left: 10px;
+    font-style: italic;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        margin: 10px auto; /* Tambahkan auto untuk center */
+        max-height: none; /* Hapus batasan max-height di mobile, biarkan konten tumbuh */
+        height: auto;
+        /* Penting: Set min-height untuk memastikan container cukup besar saat keyboard muncul */
+        min-height: calc(100dvh - 20px); /* Pastikan container mengisi setidaknya 100dvh dikurangi margin */
+    }
+
+    body {
+        /* min-height: -webkit-fill-available; DIHAPUS - 100dvh sudah mencukupi */
+        /* height: -webkit-fill-available; DIHAPUS */
+        overflow-y: auto; /* Tetap izinkan body scroll */
+    }
+
+    /* #quiz-screen.active dan #result-screen.active tidak perlu display: flex lagi secara umum */
+    /* Mereka akan mengandalkan body untuk scroll */
+
+    h1 {
+        font-size: 2em;
+    }
+    h3 {
+        font-size: 1.5em;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .selection-grid button {
+        font-size: 1.5em;
+        padding: 15px 5px;
+    }
+
+    .quiz-header {
+        font-size: 1em;
+        margin-bottom: 15px;
+    }
+
+    .question-number, .timer-display {
+        padding: 6px 12px;
+    }
+
+    .question {
+        font-size: 2.2em;
+    }
+
+    #answer-input {
+        font-size: 1.2em;
+        padding: 12px 15px;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 1.1em;
+    }
+
+    .feedback {
+        font-size: 1em;
+    }
+
+    .summary-box {
+        font-size: 1.1em;
+        margin-bottom: 15px;
+    }
+
+    .motivation {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+
+    /* Penyesuaian khusus untuk halaman KUIS saat keyboard muncul */
+    #quiz-screen.active {
+        /* DIHAPUS display: flex, flex-direction, justify-content, height */
+        /* Biarkan konten mengalir secara normal. Scrolling akan dihandle oleh body */
+        padding-top: 10px;
+        padding-bottom: 10px;
+        overflow-y: visible; /* Pastikan konten bisa mengalir keluar jika perlu */
+    }
+
+    .question-box {
+        margin-bottom: 10px;
+        padding: 20px 15px;
+        /* flex-grow: 1; DIHAPUS */
+        /* display: flex; DIHAPUS */
+        /* flex-direction: column; DIHAPUS */
+        /* justify-content: center; DIHAPUS */
+    }
+
+    #answer-input {
+        margin-bottom: 10px;
+    }
+
+    /* Halaman Summary di mobile, tidak perlu max-height lagi untuk detail-results-container */
+    .detailed-results-container {
+        max-height: none; /* Hapus batasan tinggi */
+        margin-bottom: 15px;
+        padding: 10px;
+    }
+
+    .result-actions {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        padding-top: 10px;
+    }
+
+    .result-actions button {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+}

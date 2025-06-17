@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uji Perkalian Ceria!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div id="start-screen" class="screen active">
+            <h1>Yuk, Latihan Perkalian!</h1>
+            <p>Pilih angka perkalian yang ingin kamu latih:</p>
+            <div id="selection-buttons" class="selection-grid">
+                </div>
+        </div>
+
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <div id="question-number" class="question-number">Soal 1/10</div>
+                <div id="timer-display" class="timer-display">00:00</div>
+            </div>
+            <div class="progress-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+            <div class="question-box">
+                <p class="question" id="question-text"></p>
+                <input type="number" id="answer-input" placeholder="Jawab di sini!" inputmode="numeric">
+                <button id="submit-button">Jawab!</button>
+                <p id="feedback-text" class="feedback"></p>
+            </div>
+        </div>
+
+        <div id="result-screen" class="screen">
+            <h2 id="result-title"></h2>
+            <div class="summary-box">
+                <p>Skormu: <span id="score-text"></span></p>
+                <p>Waktu Pengerjaan: <span id="time-taken-text"></span></p>
+            </div>
+            <p class="motivation" id="motivation-text"></p>
+
+            <div class="result-actions">
+                <button id="practice-again-button">Ayo Berlatih Lagi!</button>
+                <button id="retry-button">Coba Lagi!</button>
+            </div>
+
+            <h3>Detail Jawabanmu:</h3>
+            <div id="detailed-results" class="detailed-results-container">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

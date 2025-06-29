@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosa Penyakit Ayam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAF9F6;
+        }
+        /* Style checkbox kustom dari file asli Anda */
+        .gejala-checkbox:checked + label {
+            background-color: #2563eb;
+            color: white;
+            border-color: #1d4ed8;
+        }
+        .gejala-checkbox:disabled + label {
+            background-color: #e5e7eb;
+            color: #9ca3af;
+            cursor: not-allowed;
+            border-color: #d1d5db;
+        }
+        /* Style tambahan untuk tombol dukungan */
+        .support-btn {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #FFC107, #FF9800);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(255, 152, 0, 0.4);
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+        .support-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(255, 152, 0, 0.5);
+        }
+        /* REVISI: Style untuk tombol kembali yang lebih mencolok */
+        .nav-btn {
+            text-decoration: none;
+            color: #00796B;
+            border: 2px solid #00796B;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        .nav-btn:hover {
+            background-color: #00796B;
+            color: white;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+        
+        <header class="mb-8">
+            <div class="mb-6">
+                <a href="kalkulator.html" class="nav-btn">← Kembali ke Kalkulator Pakan</a>
+            </div>
+            <!-- REVISI: Menambahkan margin-top (mt-6) untuk memberi jarak -->
+            <div class="text-center mt-6">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900">🐓 Diagnosa Dini Penyakit Ayam</h1>
+                <p class="mt-2 text-gray-600">Pilih gejala yang teramati pada ayam Anda untuk mendapatkan perkiraan penyakit.</p>
+            </div>
+        </header>
+
+        <main>
+            <!-- Tampilan dikembalikan ke model awal -->
+            <div id="selection-section" class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+                <h2 class="text-xl font-semibold mb-1">1. Pilih Gejala Klinis (Maksimal 5)</h2>
+                <p class="text-sm text-gray-500 mb-4">Pilih gejala yang paling menonjol. Memilih lebih dari 5 tidak akan diizinkan.</p>
+                
+                <div id="gejala-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                    <!-- Gejala akan dimasukkan di sini oleh JavaScript -->
+                </div>
+                
+                <div id="validation-message" class="mt-4 text-red-600 font-medium text-sm hidden"></div>
+
+                <div class="mt-6 text-center">
+                    <button id="diagnose-btn" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300 transform hover:scale-105">
+                        Analisis Penyakit
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bagian Traktir Kopi dipindah ke sini dan selalu terlihat -->
+            <div class="text-center my-8 p-6 bg-gray-100 rounded-lg">
+                <h3 class="text-xl font-semibold text-gray-800">Alat Ini Membantu?</h3>
+                <p class="text-gray-600 my-2">Dukungan Anda sangat berarti agar kami bisa terus mengembangkan alat bermanfaat lainnya untuk peternak.</p>
+                <a href="https://saweria.co/jalangoen" target="_blank" class="support-btn mt-2">Beri Secangkir Kopi ☕</a>
+            </div>
+
+            <div id="result-section" class="mt-8">
+                <!-- Hasil diagnosa akan ditampilkan di sini -->
+            </div>
+
+            <!-- Soft Marketing Toko, akan muncul setelah analisis -->
+            <div id="shop-section" class="hidden my-8 p-6 text-center bg-blue-50 border border-blue-200 rounded-lg">
+                 <h4 class="text-xl font-semibold text-gray-800">Butuh Obat & Vitamin?</h4>
+                 <p class="text-gray-600 my-2">Temukan produk-produk pilihan yang kami rekomendasikan.</p>
+                 <a href="https://collshp.com/keranjang.goen" class="inline-block mt-2 bg-orange-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-orange-600 transition-colors" target="_blank" rel="noopener noreferrer">🛒 Kunjungi Toko Kami</a>
+            </div>
+        </main>
+        
+        <footer class="text-center mt-12 text-sm text-gray-500">
+            <!-- Footnote dipindah ke sini dalam kotak terpisah -->
+            <div class="footnote mb-6">
+                <p>"maju terus peternak Indonesia"</p>
+                <p>by. <a href="https://www.instagram.com/jalan.goen" target="_blank" class="text-gray-600 hover:text-blue-600 font-semibold" rel="noopener noreferrer">kandang.goen</a></p>
+            </div>
+
+            <div class="disclaimer p-4 bg-gray-200 rounded-lg text-xs">
+                <strong>Disclaimer:</strong> Aplikasi ini adalah alat bantu perkiraan dan bukan pengganti diagnosa profesional oleh dokter hewan. Untuk penanganan yang akurat, segera konsultasikan dengan ahli.
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const diseaseDatabase = [
+            {
+                name: "Tetelo (Newcastle Disease/ND)",
+                symptoms: ["Leher terpuntir (tortikolis)", "Kelumpuhan kaki dan sayap", "Nafsu makan hilang", "Ngorok dan sulit bernapas", "Diare (seringkali kehijauan)", "Jengger dan pial bengkak kebiruan", "Produksi telur turun drastis"],
+                description: "Penyakit virus yang sangat menular dan fatal, menyerang sistem pernapasan, pencernaan, dan saraf. Kematian bisa sangat cepat dan tinggi.",
+                prevention: "Vaksinasi ND secara rutin adalah cara paling efektif. Jaga kebersihan kandang (biosekuriti) dan hindari kontak dengan unggas liar.",
+                treatment: "<strong>Medis:</strong> Belum ada obat yang efektif untuk membunuh virus ND. Pengobatan bersifat suportif untuk mencegah infeksi sekunder bakteri dengan antibiotik (misalnya, tetracycline) dan memberikan vitamin (terutama B kompleks) untuk daya tahan tubuh. <br><br><strong>Herbal:</strong> Berikan ramuan dari temulawak, kunyit, dan jahe yang diparut dan dicampur air minum untuk meningkatkan kekebalan tubuh dan nafsu makan."
+            },
+            {
+                name: "Gumboro (Infectious Bursal Disease/IBD)",
+                symptoms: ["Ayam lesu dan bergerombol", "Bulu kusam dan berdiri", "Diare (keputihan atau berlendir)", "Nafsu makan hilang", "Gemetar", "Mematuk daerah kloaka"],
+                description: "Penyakit virus yang menyerang sistem kekebalan tubuh ayam, khususnya pada organ Bursa Fabricius. Ayam menjadi sangat rentan terhadap penyakit lain.",
+                prevention: "Vaksinasi Gumboro pada umur yang tepat (biasanya 7-14 hari). Sanitasi kandang dan air minum yang ketat sangat penting.",
+                treatment: "<strong>Medis:</strong> Tidak ada obat antivirus. Berikan antibiotik untuk infeksi sekunder dan multivitamin (terutama vitamin A, D, E) untuk pemulihan. Obat anti-panas seperti paracetamol bisa diberikan. <br><br><strong>Herbal:</strong> Ramuan daun pepaya atau daun sambiloto dapat membantu meningkatkan daya tahan tubuh dan mengurangi peradangan."
+            },
+            {
+                name: "Snot (Infectious Coryza)",
+                symptoms: ["Keluar lendir kental dari hidung (bau khas)", "Pembengkakan pada wajah dan mata", "Mata tertutup dan berair", "Nafsu makan hilang", "Ngorok dan sulit bernapas"],
+                description: "Infeksi bakteri yang menyerang saluran pernapasan atas. Meskipun angka kematian rendah, penyakit ini menyebabkan penurunan berat badan dan produksi telur.",
+                prevention: "Vaksinasi Coryza. Jaga kepadatan kandang agar tidak terlalu padat dan pastikan sirkulasi udara baik. Pisahkan ayam yang sakit.",
+                treatment: "<strong>Medis:</strong> Sangat responsif terhadap antibiotik seperti Sulfadimethoxine, Erythromycin, atau Enrofloxacin yang dicampur dalam air minum atau pakan. <br><br><strong>Herbal:</strong> Berikan perasan air bawang putih sebagai antiseptik alami yang dicampurkan ke air minum."
+            },
+            {
+                name: "Berak Darah (Coccidiosis)",
+                symptoms: ["Diare berdarah", "Ayam lesu dan bergerombol", "Bulu kusam dan berdiri", "Nafsu makan hilang", "Sayap terkulai", "Anemia (pucat pada jengger)"],
+                description: "Disebabkan oleh parasit protozoa Eimeria yang merusak dinding usus. Sangat umum terjadi pada kandang dengan litter (alas) yang lembab.",
+                prevention: "Jaga agar litter tetap kering. Berikan antikoksidia (coccidiostat) dalam pakan secara rutin. Hindari kepadatan kandang yang berlebihan.",
+                treatment: "<strong>Medis:</strong> Pengobatan dengan obat golongan Sulfa (seperti Sulfadimethoxine, Sulfaquinoxaline) atau Toltrazuril dan Amprolium sangat efektif. <br><br><strong>Herbal:</strong> Ekstrak daun pepaya atau daun jambu biji diketahui memiliki efek anti-protozoa dan dapat membantu menghentikan pendarahan usus."
+            },
+            {
+                name: "Ngorok (Chronic Respiratory Disease/CRD)",
+                symptoms: ["Ngorok dan sulit bernapas", "Batuk dan bersin", "Keluar lendir dari hidung", "Nafsu makan hilang", "Pembengkakan pada wajah dan mata", "Penurunan berat badan"],
+                description: "Infeksi bakteri Mycoplasma gallisepticum. Penyakit ini kronis dan seringkali diperparah oleh stres atau infeksi virus lain.",
+                prevention: "Pastikan sirkulasi udara kandang baik. Hindari stres (perubahan pakan mendadak, cuaca ekstrem). Jaga kebersihan kandang.",
+                treatment: "<strong>Medis:</strong> Antibiotik seperti Tylosin, Tiamulin, atau Enrofloxacin efektif untuk menekan gejala. Namun, sulit untuk memberantas bakteri sepenuhnya. <br><br><strong>Herbal:</strong> Inhalasi/penguapan dengan minyak kayu putih atau larutan daun sirih di dalam kandang dapat membantu melegakan pernapasan. Campuran jahe dan madu di air minum juga bisa membantu."
+            },
+            {
+                name: "Berak Kapur (Pullorum)",
+                symptoms: ["Diare keputihan seperti kapur (menempel di kloaka)", "Ayam lesu dan bergerombol", "Nafsu makan hilang", "Anak ayam sering berteriak karena sakit", "Jengger dan pial pucat"],
+                description: "Disebabkan oleh bakteri Salmonella Pullorum. Sangat mematikan bagi anak ayam dan dapat ditularkan secara vertikal dari induk ke telur.",
+                prevention: "Pastikan membeli DOC (Day Old Chick) dari penetasan yang bebas Pullorum. Lakukan sanitasi yang ketat dan fumigasi kandang sebelum DOC masuk.",
+                treatment: "<strong>Medis:</strong> Pengobatan dengan antibiotik seperti Amoxicillin, Ampicillin, atau Norfloxacin dapat mengurangi kematian tetapi tidak menghilangkan bakteri dari tubuh (ayam menjadi carrier). Sebaiknya ayam yang terinfeksi dimusnahkan. <br><br><strong>Herbal:</strong> Pemberian probiotik dari tempe atau yogurt dapat membantu menyehatkan pencernaan, namun tidak mengobati infeksi salmonella secara langsung."
+            },
+            {
+                name: "Flu Burung (Avian Influenza)",
+                symptoms: ["Jengger dan pial bengkak kebiruan", "Kematian mendadak sangat tinggi", "Diare (seringkali kehijauan)", "Pendarahan pada kaki (keropeng)", "Ngorok dan sulit bernapas", "Kelumpuhan kaki dan sayap"],
+                description: "Penyakit virus yang sangat berbahaya dan menular dengan cepat. Angka kematian bisa mencapai 100%. Penyakit ini juga bersifat zoonosis (bisa menular ke manusia).",
+                prevention: "Biosekuriti super ketat adalah kunci. Vaksinasi AI. Cegah kontak dengan unggas lain atau burung liar. Lakukan desinfeksi secara rutin.",
+                treatment: "<strong>Medis:</strong> Tidak ada pengobatan. Tindakan yang harus dilakukan adalah pemusnahan terbatas (culling) pada ayam yang terinfeksi dan di sekitarnya untuk mencegah penyebaran. Segera lapor ke dinas peternakan setempat.<br><br><strong>Herbal:</strong> Tidak ada pengobatan herbal. Fokus utama adalah pencegahan."
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const gejalaListContainer = document.getElementById('gejala-list');
+            const diagnoseBtn = document.getElementById('diagnose-btn');
+            const resultSection = document.getElementById('result-section');
+            const validationMessage = document.getElementById('validation-message');
+            const shopSection = document.getElementById('shop-section');
+
+            const allSymptoms = [...new Set(diseaseDatabase.flatMap(d => d.symptoms))].sort();
+
+            gejalaListContainer.innerHTML = allSymptoms.map((symptom, index) => `
+                <div class="relative">
+                    <input type="checkbox" id="gejala-${index}" value="${symptom}" class="hidden gejala-checkbox">
+                    <label for="gejala-${index}" class="block w-full text-sm text-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors duration-200">
+                        ${symptom}
+                    </label>
+                </div>
+            `).join('');
+
+            const checkboxes = document.querySelectorAll('.gejala-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    const checkedCount = document.querySelectorAll('.gejala-checkbox:checked').length;
+                    if (checkedCount >= 5) {
+                        checkboxes.forEach(cb => {
+                            if (!cb.checked) cb.disabled = true;
+                        });
+                        validationMessage.textContent = "Anda telah mencapai batas maksimal 5 gejala.";
+                        validationMessage.classList.remove('hidden');
+                    } else {
+                        checkboxes.forEach(cb => {
+                            cb.disabled = false;
+                        });
+                        validationMessage.classList.add('hidden');
+                    }
+                });
+            });
+
+            diagnoseBtn.addEventListener('click', () => {
+                const selectedSymptoms = Array.from(document.querySelectorAll('.gejala-checkbox:checked')).map(cb => cb.value);
+                
+                if (selectedSymptoms.length === 0) {
+                    resultSection.innerHTML = `<div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-lg shadow" role="alert"><p class="font-bold">Peringatan</p><p>Silakan pilih minimal satu gejala terlebih dahulu untuk melakukan analisis.</p></div>`;
+                    return;
+                }
+
+                const scores = diseaseDatabase.map(disease => {
+                    const matchCount = disease.symptoms.filter(symptom => selectedSymptoms.includes(symptom)).length;
+                    const relevance = selectedSymptoms.length > 0 ? (matchCount / selectedSymptoms.length) * 100 : 0;
+                    return { disease, score: matchCount, relevance };
+                }).filter(item => item.score > 0);
+
+                scores.sort((a, b) => b.score - a.score || b.relevance - a.relevance);
+                displayResults(scores);
+            });
+
+            function displayResults(possibleDiseases) {
+                if (possibleDiseases.length === 0) {
+                    resultSection.innerHTML = `<div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 text-center"><h2 class="text-xl font-semibold text-gray-800 mb-2">Tidak Ada Kecocokan</h2><p class="text-gray-600">Berdasarkan gejala yang Anda pilih, tidak ditemukan penyakit yang cocok secara spesifik. Coba periksa kembali gejala atau konsultasikan langsung dengan dokter hewan.</p></div>`;
+                } else {
+                    resultSection.innerHTML = `<h2 class="text-2xl font-bold mb-6 text-center">Hasil Analisis Ditemukan</h2>` + possibleDiseases.map((item, index) => createResultCard(item, index, possibleDiseases.length)).join('');
+                    
+                    document.querySelectorAll('.treatment-toggle').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const targetId = btn.dataset.target;
+                            const treatmentInfo = document.getElementById(targetId);
+                            const isHidden = treatmentInfo.classList.toggle('hidden');
+                            btn.textContent = isHidden ? 'Tampilkan Saran Pengobatan & Pencegahan' : 'Sembunyikan Saran';
+                        });
+                    });
+                }
+                shopSection.classList.remove('hidden');
+                resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            function createResultCard(item, index, totalResults) {
+                const disease = item.disease;
+                const relevance = Math.round(item.relevance);
+                return `
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-200 mb-6 overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl md:text-2xl font-bold text-blue-700">Perkiraan: ${disease.name}</h3>
+                                <span class="text-xs sm:text-sm font-medium text-gray-600 bg-gray-100 px-3 py-1 rounded-full whitespace-nowrap">Perkiraan ${index + 1} dari ${totalResults}</span>
+                            </div>
+                            <div class="mb-4">
+                                 <span class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-3 py-1 rounded-full">Tingkat Kecocokan: ${relevance}%</span>
+                            </div>
+                            <p class="mt-2 text-gray-600">${disease.description}</p>
+                            <p class="mt-4 font-semibold text-gray-800">Gejala umum penyakit ini:</p>
+                            <ul class="mt-2 list-disc list-inside text-gray-700 space-y-1">
+                                ${disease.symptoms.slice(0, 5).map(s => `<li>${s}</li>`).join('')}
+                            </ul>
+                            <div class="mt-6">
+                                <button data-target="treatment-info-${index}" class="treatment-toggle w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 transition-colors">
+                                    Tampilkan Saran Pengobatan & Pencegahan
+                                </button>
+                            </div>
+                        </div>
+                        <div id="treatment-info-${index}" class="hidden bg-gray-50 px-6 pb-6 pt-4 border-t border-gray-200">
+                            <h4 class="text-lg font-bold text-gray-800">Pencegahan</h4>
+                            <p class="mt-1 text-gray-600">${disease.prevention}</p>
+                            <h4 class="text-lg font-bold text-gray-800 mt-4">Saran Pengobatan</h4>
+                            <div class="mt-1 text-gray-600 space-y-2">${disease.treatment}</div>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

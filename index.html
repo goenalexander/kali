@@ -27,7 +27,7 @@
         .header-nav {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: 25px; /* REVISI: Menambah spasi */
+            margin-bottom: 25px;
         }
         header h1 {
             margin: 0;
@@ -296,21 +296,39 @@
                 document.getElementById('calculator-form').classList.remove('hidden');
 
                 const selects = document.querySelectorAll('.ingredient-select');
-                const ingredients = Object.keys(processedFeedData).sort();
-                let optionsHTML = '<option value="" selected>-- Pilih Bahan Pakan --</option>';
-                ingredients.forEach(name => {
-                    optionsHTML += `<option value="${name}">${name}</option>`;
-                });
                 
+                const categoryOrder = ['bahanBakuTunggal', 'konsentratKomersial', 'pakanPabrikan'];
+                const categoryLabels = {
+                    bahanBakuTunggal: "Bahan Baku Tunggal",
+                    konsentratKomersial: "Konsentrat Komersial",
+                    pakanPabrikan: "Pakan Jadi Pabrikan"
+                };
+
+                let optionsHTML = '<option value="" selected>-- Pilih Bahan Pakan --</option>';
+
+                categoryOrder.forEach(categoryKey => {
+                    if (window.feedData[categoryKey] && Array.isArray(window.feedData[categoryKey])) {
+                        
+                        const ingredientNames = window.feedData[categoryKey].map(item => {
+                            return item["Bahan Pakan"] || item["Merek/Varian Konsentrat"] || item["Merek/Varian Pakan"];
+                        }).filter(name => name);
+
+                        // REVISI: Mengurutkan nama bahan secara abjad (A-Z)
+                        ingredientNames.sort((a, b) => a.localeCompare(b));
+
+                        optionsHTML += `<optgroup label="--- ${categoryLabels[categoryKey]} ---">`;
+                        ingredientNames.forEach(name => {
+                            optionsHTML += `<option value="${name}">${name}</option>`;
+                        });
+                        optionsHTML += `</optgroup>`;
+                    }
+                });
+
                 selects.forEach(select => {
                     select.innerHTML = optionsHTML;
                     select.classList.add('placeholder-shown');
                     select.addEventListener('change', () => {
-                        if (select.value === "") {
-                            select.classList.add('placeholder-shown');
-                        } else {
-                            select.classList.remove('placeholder-shown');
-                        }
+                        select.classList.toggle('placeholder-shown', select.value === "");
                     });
                 });
 

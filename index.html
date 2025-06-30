@@ -27,7 +27,7 @@
         .header-nav {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: 15px;
+            margin-bottom: 25px; /* REVISI: Menambah spasi */
         }
         header h1 {
             margin: 0;
@@ -77,6 +77,9 @@
             box-sizing: border-box;
             font-size: 1em;
         }
+        select.placeholder-shown {
+            color: #888;
+        }
         button#calculate-btn {
             width: 100%;
             padding: 12px;
@@ -92,7 +95,6 @@
         button#calculate-btn:hover {
             background-color: #004D40;
         }
-        
         .support-section {
             text-align: center;
             margin: 40px 0;
@@ -118,7 +120,6 @@
             transform: scale(1.05);
             box-shadow: 0 6px 15px rgba(255, 152, 0, 0.5);
         }
-
         #results { 
             display: none; 
             margin-top: 20px;
@@ -136,16 +137,13 @@
             font-size: 1.1em;
             color: #1B5E20;
         }
-
         #recommendation { margin-top: 20px; padding: 15px; border-radius: 5px; background-color: #FFFFFF; border-left: 5px solid #00796B;}
-        
         .footer {
             margin-top: 40px;
             text-align: center;
             font-size: 0.9em;
             color: #6c757d;
         }
-        
         .shop-separator {
             padding: 25px 20px;
             margin: 30px 0;
@@ -154,51 +152,14 @@
             border-bottom: 1px solid #d9e2ec;
             text-align: center;
         }
-        .shop-separator h4 {
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-            color: #333;
-        }
-        .shop-btn {
-            display: inline-block;
-            padding: 10px 24px;
-            background-color: #EE4D2D;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background-color 0.2s;
-        }
-        .shop-btn:hover {
-            background-color: #d73111;
-        }
-
-        .footnote {
-            padding: 20px;
-            margin-top: -10px;
-            margin-bottom: 20px;
-        }
-        .footnote p {
-            margin: 5px 0;
-        }
-        .footnote-byline {
-            text-decoration: none;
-            color: #004D40;
-            font-weight: bold;
-        }
-        .footnote-byline:hover {
-            text-decoration: underline;
-        }
-
-        .disclaimer {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #eeeeee;
-            border-radius: 5px;
-            font-size: 0.8em;
-            text-align: justify;
-        }
+        .shop-separator h4 { margin-top: 0; margin-bottom: 15px; font-size: 1.1em; color: #333; }
+        .shop-btn { display: inline-block; padding: 10px 24px; background-color: #EE4D2D; color: white; text-decoration: none; font-weight: bold; border-radius: 5px; transition: background-color 0.2s; }
+        .shop-btn:hover { background-color: #d73111; }
+        .footnote { padding: 20px; margin-top: -10px; margin-bottom: 20px; }
+        .footnote p { margin: 5px 0; }
+        .footnote-byline { text-decoration: none; color: #004D40; font-weight: bold; }
+        .footnote-byline:hover { text-decoration: underline; }
+        .disclaimer { margin-top: 20px; padding: 10px; background-color: #eeeeee; border-radius: 5px; font-size: 0.8em; text-align: justify; }
         #loader { text-align: center; padding: 40px; font-size: 1.2em; color: #6c757d; }
         .hidden { display: none; }
         .error { color: red; text-align: center; font-weight: bold; margin: 10px 0;}
@@ -222,7 +183,6 @@
             </div>
             <hr style="border: none; border-top: 1px solid #eee; margin: 25px 0;">
             <div id="ingredient-inputs">
-                <!-- 5 baris input statis -->
                 <div class="input-row">
                     <select class="ingredient-select"></select>
                     <input type="number" class="ingredient-amount" placeholder="Jumlah" min="0" step="any">
@@ -254,7 +214,6 @@
             <a href="https://saweria.co/jalangoen" target="_blank" class="support-btn">Beri Secangkir Kopi ☕</a>
         </div>
 
-
         <div id="results" class="hidden">
             <h2>Hasil Analisis Pakan</h2>
             <p id="total-weight-display" style="text-align:center; font-weight:bold;"></p>
@@ -270,7 +229,6 @@
                 <h4>Butuh Peralatan & Pakan Berkualitas?</h4>
                 <a href="https://collshp.com/keranjang.goen" class="shop-btn" target="_blank" rel="noopener noreferrer">🛒 Kunjungi Koleksi Shopee Kami</a>
             </div>
-            
             <div class="footnote">
                 <p>"maju terus peternak Indonesia"</p>
                 <p>by. 
@@ -279,7 +237,6 @@
                     </a>
                 </p>
             </div>
-
             <div class="disclaimer">
                 <strong>DISCLAIMER:</strong> Kalkulator ini bersifat sebagai alat bantu estimasi. Kandungan gizi riil pada bahan pakan dapat bervariasi tergantung pada kualitas, proses pengolahan, dan kebijakan produsen pakan. Selalu lakukan pengamatan langsung terhadap kondisi ternak Anda.
             </div>
@@ -330,7 +287,7 @@
         window.onload = () => {
              try {
                 if (typeof feedData === 'undefined') {
-                    throw new Error("File data_pakan.js tidak ditemukan atau gagal dimuat.");
+                    throw new Error("File data_pakan.js tidak ditemukan atau gagal dimuat. Pastikan file tersebut ada di folder yang sama dengan file HTML ini.");
                 }
                 
                 processedFeedData = transformData(feedData);
@@ -340,27 +297,21 @@
 
                 const selects = document.querySelectorAll('.ingredient-select');
                 const ingredients = Object.keys(processedFeedData).sort();
-                let optionsHTML = '<option value="">-- Pilih Bahan Pakan --</option>';
+                let optionsHTML = '<option value="" selected>-- Pilih Bahan Pakan --</option>';
                 ingredients.forEach(name => {
                     optionsHTML += `<option value="${name}">${name}</option>`;
                 });
                 
                 selects.forEach(select => {
                     select.innerHTML = optionsHTML;
-
-                    // REVISI: Logika untuk mengubah warna placeholder
-                    const updateColor = () => {
+                    select.classList.add('placeholder-shown');
+                    select.addEventListener('change', () => {
                         if (select.value === "") {
-                            select.style.color = '#888'; // Warna redup untuk placeholder
+                            select.classList.add('placeholder-shown');
                         } else {
-                            select.style.color = '#333'; // Warna normal untuk pilihan
+                            select.classList.remove('placeholder-shown');
                         }
-                    };
-                    
-                    select.addEventListener('change', updateColor);
-                    
-                    // Atur warna awal saat halaman dimuat
-                    updateColor();
+                    });
                 });
 
              } catch (error) {

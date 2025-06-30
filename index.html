@@ -27,7 +27,7 @@
         .header-nav {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: 25px;
+            margin-bottom: 25px; /* REVISI: Menambah spasi */
         }
         header h1 {
             margin: 0;
@@ -313,7 +313,6 @@
                             return item["Bahan Pakan"] || item["Merek/Varian Konsentrat"] || item["Merek/Varian Pakan"];
                         }).filter(name => name);
 
-                        // REVISI: Mengurutkan nama bahan secara abjad (A-Z)
                         ingredientNames.sort((a, b) => a.localeCompare(b));
 
                         optionsHTML += `<optgroup label="--- ${categoryLabels[categoryKey]} ---">`;

@@ -1,5 +1,20 @@
+// ===================================================================
+//  EDIT DATA PAKAN ANDA DI SINI
+//  Untuk menambah/mengubah, cukup edit daftar di dalam file ini.
+//  Halaman kalkulator akan otomatis diperbarui.
+// ===================================================================
+
 const feedData = {
-  bahanBakuTunggal:"
+  
+  bahanBakuTunggal: [
+    {
+      "Bahan Pakan": "Jagung Giling",
+      "Protein Kasar (%)": "8.7",
+      "Energi Metabolisme (kkal/kg)": "3610",
+      "Lemak Kasar (%)": "4.5",
+      "Serat Kasar (%)": "2.5",
+      "Kalsium (%)": "0.009",
+      "Fosfor (%)": "0.038"
     },
     {
       "Bahan Pakan": "Dedak Padi",
@@ -8,8 +23,7 @@ const feedData = {
       "Lemak Kasar (%)": 5,
       "Serat Kasar (%)": 10,
       "Kalsium (%)": 0.06,
-      "Fosfor (%)": 1.5,
-      "Sumber Data": ""
+      "Fosfor (%)": 1.5
     },
     {
       "Bahan Pakan": "Menir",
@@ -18,8 +32,7 @@ const feedData = {
       "Lemak Kasar (%)": 4.40,
       "Serat Kasar (%)": 0.20,
       "Kalsium (%)": 0.022,
-      "Fosfor (%)": 0.272,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.272
     },
     {
       "Bahan Pakan": "Bungkil Kedelai",
@@ -28,18 +41,16 @@ const feedData = {
       "Lemak Kasar (%)": "0.5-2",
       "Serat Kasar (%)": "3-5",
       "Kalsium (%)": 0.2,
-      "Fosfor (%)": 0.67,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.67
     },
     {
       "Bahan Pakan": "Tepung Ikan",
       "Protein Kasar (%)": "40-68",
       "Energi Metabolisme (kkal/kg)": 2750,
-      "Lemak Kasar (%)": 8,
+      "Lemak Kasar (%)": "Max 8",
       "Serat Kasar (%)": 1,
       "Kalsium (%)": 6.5,
-      "Fosfor (%)": 2.88,
-      "Sumber Data": ""
+      "Fosfor (%)": 2.88
     },
     {
       "Bahan Pakan": "Tepung Tulang",
@@ -48,8 +59,7 @@ const feedData = {
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": 24,
-      "Fosfor (%)": 12,
-      "Sumber Data": ""
+      "Fosfor (%)": 12
     },
     {
       "Bahan Pakan": "Pollard",
@@ -58,8 +68,7 @@ const feedData = {
       "Lemak Kasar (%)": 4,
       "Serat Kasar (%)": 9,
       "Kalsium (%)": 0.1,
-      "Fosfor (%)": 0.9,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.9
     },
     {
       "Bahan Pakan": "Canola (Bungkil Canola)",
@@ -68,8 +77,7 @@ const feedData = {
       "Lemak Kasar (%)": "1-2",
       "Serat Kasar (%)": 34.53,
       "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": "[1, 2]"
+      "Fosfor (%)": null
     },
     {
       "Bahan Pakan": "Daun Singkong",
@@ -78,8 +86,7 @@ const feedData = {
       "Lemak Kasar (%)": 1.2,
       "Serat Kasar (%)": 2.4,
       "Kalsium (%)": 0.165,
-      "Fosfor (%)": 0.054,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.054
     },
     {
       "Bahan Pakan": "Daun Pepaya",
@@ -88,8 +95,7 @@ const feedData = {
       "Lemak Kasar (%)": 2.0,
       "Serat Kasar (%)": 14.68,
       "Kalsium (%)": 0.353,
-      "Fosfor (%)": 0.063,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.063
     },
     {
       "Bahan Pakan": "Daun Kangkung (Segar)",
@@ -98,8 +104,7 @@ const feedData = {
       "Lemak Kasar (%)": 0.7,
       "Serat Kasar (%)": 2,
       "Kalsium (%)": 0.067,
-      "Fosfor (%)": 0.054,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.054
     },
     {
       "Bahan Pakan": "Daun Sawi Hijau",
@@ -108,8 +113,7 @@ const feedData = {
       "Lemak Kasar (%)": 0.3,
       "Serat Kasar (%)": 2.5,
       "Kalsium (%)": 0.22,
-      "Fosfor (%)": 0.038,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.038
     },
     {
       "Bahan Pakan": "Daun Sawi Putih",
@@ -118,8 +122,7 @@ const feedData = {
       "Lemak Kasar (%)": 0.10,
       "Serat Kasar (%)": 0.80,
       "Kalsium (%)": 0.056,
-      "Fosfor (%)": 0.042,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.042
     },
     {
       "Bahan Pakan": "Daun Kol (Segar)",
@@ -128,8 +131,7 @@ const feedData = {
       "Lemak Kasar (%)": 1.10,
       "Serat Kasar (%)": 3.40,
       "Kalsium (%)": 0.10,
-      "Fosfor (%)": 0.050,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.050
     },
     {
       "Bahan Pakan": "Daun Kelor",
@@ -137,9 +139,8 @@ const feedData = {
       "Energi Metabolisme (kkal/kg)": 3162.97,
       "Lemak Kasar (%)": 2.25,
       "Serat Kasar (%)": 10.05,
-      "Kalsium (%)": 2.66,
-      "Fosfor (%)": 0.95,
-      "Sumber Data": ""
+      "Kalsium (%)": "1.6-2.2",
+      "Fosfor (%)": 0.95
     },
     {
       "Bahan Pakan": "Daun Bayam (Segar)",
@@ -148,8 +149,7 @@ const feedData = {
       "Lemak Kasar (%)": 0.40,
       "Serat Kasar (%)": 0.70,
       "Kalsium (%)": "0.166-0.265",
-      "Fosfor (%)": 0.076,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.076
     },
     {
       "Bahan Pakan": "Daun Katuk (Segar)",
@@ -158,8 +158,7 @@ const feedData = {
       "Lemak Kasar (%)": "8.52-9.69",
       "Serat Kasar (%)": "7.42-8.39",
       "Kalsium (%)": "1.14-1.17",
-      "Fosfor (%)": "0.43-0.44",
-      "Sumber Data": "[3, 4, 5, 6, 7]"
+      "Fosfor (%)": "0.43-0.44"
     },
     {
       "Bahan Pakan": "Kecambah Padi",
@@ -168,8 +167,7 @@ const feedData = {
       "Lemak Kasar (%)": 2.15,
       "Serat Kasar (%)": "2.38-5.60",
       "Kalsium (%)": 0.00043,
-      "Fosfor (%)": 0.18,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.18
     },
     {
       "Bahan Pakan": "Kecambah Jagung",
@@ -178,8 +176,7 @@ const feedData = {
       "Lemak Kasar (%)": 1.35,
       "Serat Kasar (%)": 2,
       "Kalsium (%)": null,
-      "Fosfor (%)": 0.089,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.089
     },
     {
       "Bahan Pakan": "Azolla (Fermentasi)",
@@ -188,8 +185,7 @@ const feedData = {
       "Lemak Kasar (%)": 7,
       "Serat Kasar (%)": null,
       "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": ""
+      "Fosfor (%)": null
     },
     {
       "Bahan Pakan": "Azolla (Segar Non-Fermentasi)",
@@ -198,8 +194,7 @@ const feedData = {
       "Lemak Kasar (%)": 2.8,
       "Serat Kasar (%)": 24.03,
       "Kalsium (%)": 1.16,
-      "Fosfor (%)": 1.29,
-      "Sumber Data": ""
+      "Fosfor (%)": 1.29
     },
     {
       "Bahan Pakan": "Nasi Aking (Fermentasi)",
@@ -208,8 +203,7 @@ const feedData = {
       "Lemak Kasar (%)": 3.28,
       "Serat Kasar (%)": 5.70,
       "Kalsium (%)": 0.99,
-      "Fosfor (%)": 0.52,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.52
     },
     {
       "Bahan Pakan": "Nasi Limbah Rumah Tangga",
@@ -218,8 +212,7 @@ const feedData = {
       "Lemak Kasar (%)": 2.08,
       "Serat Kasar (%)": 5.90,
       "Kalsium (%)": 1.09,
-      "Fosfor (%)": 0.38,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.38
     },
     {
       "Bahan Pakan": "Ampas Tahu (Kering)",
@@ -228,8 +221,7 @@ const feedData = {
       "Lemak Kasar (%)": 9.96,
       "Serat Kasar (%)": 19.44,
       "Kalsium (%)": 0.61,
-      "Fosfor (%)": 0.35,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.35
     },
     {
       "Bahan Pakan": "Ampas Singkong (Onggok)",
@@ -238,8 +230,7 @@ const feedData = {
       "Lemak Kasar (%)": 2.3,
       "Serat Kasar (%)": 31.6,
       "Kalsium (%)": 0.15,
-      "Fosfor (%)": 0.14,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.14
     },
     {
       "Bahan Pakan": "Minyak Goreng",
@@ -248,8 +239,7 @@ const feedData = {
       "Lemak Kasar (%)": 100,
       "Serat Kasar (%)": 0,
       "Kalsium (%)": 0,
-      "Fosfor (%)": 0,
-      "Sumber Data": ""
+      "Fosfor (%)": 0
     },
     {
       "Bahan Pakan": "Tepung Kulit Telur",
@@ -258,11 +248,18 @@ const feedData = {
       "Lemak Kasar (%)": 2.9,
       "Serat Kasar (%)": 0.3,
       "Kalsium (%)": 36.65,
-      "Fosfor (%)": 0.16,
-      "Sumber Data": "[8, 9, 10, 11]"
+      "Fosfor (%)": 0.16
     }
   ],
-  konsentratKomersial:"
+  konsentratKomersial: [
+    {
+      "Merek/Varian Konsentrat": "Konsentrat Protein 32% (Umum)",
+      "Protein Kasar (%)": "32",
+      "Energi Metabolisme (kkal/kg)": "1800",
+      "Lemak Kasar (%)": "4",
+      "Serat Kasar (%)": "2",
+      "Kalsium (%)": "10",
+      "Fosfor (%)": null
     },
     {
       "Merek/Varian Konsentrat": "Konsentrat Protein 34% (124P)",
@@ -271,8 +268,7 @@ const feedData = {
       "Lemak Kasar (%)": "Max 3",
       "Serat Kasar (%)": "Max 5",
       "Kalsium (%)": "9-12",
-      "Fosfor (%)": "1-2",
-      "Sumber Data": ""
+      "Fosfor (%)": "1-2"
     },
     {
       "Merek/Varian Konsentrat": "Konsentrat Protein 35% (Wonokoyo KLS Super)",
@@ -281,8 +277,7 @@ const feedData = {
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": ""
+      "Fosfor (%)": null
     },
     {
       "Merek/Varian Konsentrat": "Konsentrat Protein 37% (Grower)",
@@ -291,8 +286,7 @@ const feedData = {
       "Lemak Kasar (%)": "Ada",
       "Serat Kasar (%)": "Ada",
       "Kalsium (%)": "Ada",
-      "Fosfor (%)": "Ada",
-      "Sumber Data": "[12]"
+      "Fosfor (%)": "Ada"
     },
     {
       "Merek/Varian Konsentrat": "Konsentrat Protein 37-39% (Hi-Pro-Vite 144 Itik)",
@@ -301,8 +295,7 @@ const feedData = {
       "Lemak Kasar (%)": "Min 2",
       "Serat Kasar (%)": "Max 6",
       "Kalsium (%)": "Min 12",
-      "Fosfor (%)": "Min 1.2",
-      "Sumber Data": ""
+      "Fosfor (%)": "Min 1.2"
     },
     {
       "Merek/Varian Konsentrat": "Konsentrat Protein 40% (Comfeed Broiler)",
@@ -311,11 +304,18 @@ const feedData = {
       "Lemak Kasar (%)": 4,
       "Serat Kasar (%)": 7,
       "Kalsium (%)": 3,
-      "Fosfor (%)": 1.5,
-      "Sumber Data": ""
+      "Fosfor (%)": 1.5
     }
   ],
-  pakanPabrikan:"
+  pakanPabrikan: [
+    {
+      "Merek/Varian Pakan": "Hi-Pro-Vite 511",
+      "Protein Kasar (%)": "Min 20",
+      "Energi Metabolisme (kkal/kg)": "2950",
+      "Lemak Kasar (%)": "Min 5",
+      "Serat Kasar (%)": "Max 5",
+      "Kalsium (%)": "0.8-1.1",
+      "Fosfor (%)": "Min 0.5"
     },
     {
       "Merek/Varian Pakan": "Hi-Pro-Vite 512",
@@ -324,8 +324,7 @@ const feedData = {
       "Lemak Kasar (%)": 5,
       "Serat Kasar (%)": 5,
       "Kalsium (%)": "0.8-1.1",
-      "Fosfor (%)": 0.45,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.45
     },
     {
       "Merek/Varian Pakan": "Hi-Pro-Vite 591K",
@@ -334,8 +333,7 @@ const feedData = {
       "Lemak Kasar (%)": "Min 3.0",
       "Serat Kasar (%)": "Max 7.0",
       "Kalsium (%)": "0.9-1.2",
-      "Fosfor (%)": "0.60-1.00",
-      "Sumber Data": ""
+      "Fosfor (%)": "0.60-1.00"
     },
     {
       "Merek/Varian Pakan": "Hi-Pro-Vite 592K",
@@ -344,8 +342,7 @@ const feedData = {
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": ""
+      "Fosfor (%)": null
     },
     {
       "Merek/Varian Pakan": "Hi-Pro-Vite 594K",
@@ -354,8 +351,7 @@ const feedData = {
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": ""
+      "Fosfor (%)": null
     },
     {
       "Merek/Varian Pakan": "Hi-Pro-Vite 324KJ",
@@ -364,18 +360,7 @@ const feedData = {
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": 4.575,
-      "Fosfor (%)": 0.415,
-      "Sumber Data": ""
-    },
-    {
-      "Merek/Varian Pakan": "Japfa Comfeed",
-      "Protein Kasar (%)": null,
-      "Energi Metabolisme (kkal/kg)": null,
-      "Lemak Kasar (%)": null,
-      "Serat Kasar (%)": null,
-      "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": null
+      "Fosfor (%)": 0.415
     },
     {
       "Merek/Varian Pakan": "Comfeed BR 1",
@@ -384,18 +369,16 @@ const feedData = {
       "Lemak Kasar (%)": "4-6",
       "Serat Kasar (%)": "Max 5",
       "Kalsium (%)": "0.9-1.2",
-      "Fosfor (%)": "0.45-0.5",
-      "Sumber Data": ""
+      "Fosfor (%)": "0.45-0.5"
     },
     {
-      "Bahan Pakan": "Comfeed Unggul 1",
+      "Merek/Varian Pakan": "Comfeed Unggul 1",
       "Protein Kasar (%)": 19,
       "Energi Metabolisme (kkal/kg)": null,
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": ""
+      "Fosfor (%)": null
     },
     {
       "Merek/Varian Pakan": "Comfeed Unggul 2",
@@ -404,8 +387,7 @@ const feedData = {
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": "Max 6",
       "Kalsium (%)": "0.8-1.2",
-      "Fosfor (%)": "0.5-1.0",
-      "Sumber Data": ""
+      "Fosfor (%)": "0.5-1.0"
     },
     {
       "Merek/Varian Pakan": "Comfeed GF 511",
@@ -414,8 +396,7 @@ const feedData = {
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": "Max 5",
       "Kalsium (%)": "0.8-1.2",
-      "Fosfor (%)": "0.6-1.0",
-      "Sumber Data": ""
+      "Fosfor (%)": "0.6-1.0"
     },
     {
       "Merek/Varian Pakan": "Comfeed GF 512",
@@ -424,28 +405,7 @@ const feedData = {
       "Lemak Kasar (%)": "2.67-3.67",
       "Serat Kasar (%)": "2.23-2.82",
       "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": ""
-    },
-    {
-      "Merek/Varian Pakan": "Comfeed AD 1",
-      "Protein Kasar (%)": null,
-      "Energi Metabolisme (kkal/kg)": null,
-      "Lemak Kasar (%)": null,
-      "Serat Kasar (%)": null,
-      "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": ""
-    },
-    {
-      "Merek/Varian Pakan": "Comfeed AD 2",
-      "Protein Kasar (%)": null,
-      "Energi Metabolisme (kkal/kg)": null,
-      "Lemak Kasar (%)": null,
-      "Serat Kasar (%)": null,
-      "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": ""
+      "Fosfor (%)": null
     },
     {
       "Merek/Varian Pakan": "Comfeed PAR DOC",
@@ -454,8 +414,7 @@ const feedData = {
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": "5-6",
       "Kalsium (%)": "0.6-1.5",
-      "Fosfor (%)": "0.6-1.2",
-      "Sumber Data": ""
+      "Fosfor (%)": "0.6-1.2"
     },
     {
       "Merek/Varian Pakan": "Comfeed PAR S",
@@ -464,8 +423,7 @@ const feedData = {
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": "Max 7",
       "Kalsium (%)": "1.7-2.7",
-      "Fosfor (%)": "0.4-1.5",
-      "Sumber Data": ""
+      "Fosfor (%)": "0.4-1.5"
     },
     {
       "Merek/Varian Pakan": "Comfeed PAR G",
@@ -474,8 +432,7 @@ const feedData = {
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": 0.95,
-      "Fosfor (%)": 0.42,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.42
     },
     {
       "Merek/Varian Pakan": "Comfeed PAR L1",
@@ -484,8 +441,7 @@ const feedData = {
       "Lemak Kasar (%)": "Min 3",
       "Serat Kasar (%)": "Max 6",
       "Kalsium (%)": 4,
-      "Fosfor (%)": "Min 0.45",
-      "Sumber Data": ""
+      "Fosfor (%)": "Min 0.45"
     },
     {
       "Merek/Varian Pakan": "Comfeed PAR L2",
@@ -494,8 +450,7 @@ const feedData = {
       "Lemak Kasar (%)": "4.76-5.00",
       "Serat Kasar (%)": "5.00-6.49",
       "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": ""
+      "Fosfor (%)": null
     },
     {
       "Merek/Varian Pakan": "Comfeed KLK Super (Konsentrat)",
@@ -504,8 +459,7 @@ const feedData = {
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": "Max 5",
       "Kalsium (%)": "8.0-12.0",
-      "Fosfor (%)": "1.0-1.5",
-      "Sumber Data": ""
+      "Fosfor (%)": "1.0-1.5"
     },
     {
       "Merek/Varian Pakan": "Benefeed",
@@ -514,128 +468,88 @@ const feedData = {
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": ""
+      "Fosfor (%)": null
     },
     {
-      "Merek/Varian Pakan": "De Heus",
-      "Protein Kasar (%)": null,
-      "Energi Metabolisme (kkal/kg)": null,
-      "Lemak Kasar (%)": null,
-      "Serat Kasar (%)": null,
-      "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": null
-    },
-    {
-      "Merek/Varian Pakan": "BPS (Broiler Pre-starter)",
+      "Merek/Varian Pakan": "De Heus BPS (Broiler Pre-starter)",
       "Protein Kasar (%)": 23,
       "Energi Metabolisme (kkal/kg)": 2900,
       "Lemak Kasar (%)": "Min 5",
       "Serat Kasar (%)": "Max 4",
       "Kalsium (%)": "0.80-1.10",
-      "Fosfor (%)": "Min 0.50",
-      "Sumber Data": ""
+      "Fosfor (%)": "Min 0.50"
     },
     {
-      "Merek/Varian Pakan": "BRO 1 (Broiler Starter)",
+      "Merek/Varian Pakan": "De Heus BRO 1 (Broiler Starter)",
       "Protein Kasar (%)": 21,
       "Energi Metabolisme (kkal/kg)": 3000,
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": ""
+      "Fosfor (%)": null
     },
     {
-      "Merek/Varian Pakan": "BR1 PLUS (Broiler Starter)",
+      "Merek/Varian Pakan": "De Heus BR1 PLUS (Broiler Starter)",
       "Protein Kasar (%)": 21,
       "Energi Metabolisme (kkal/kg)": 3000,
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": ""
+      "Fosfor (%)": null
     },
     {
-      "Merek/Varian Pakan": "LAYER 290 (Layer Starter)",
+      "Merek/Varian Pakan": "De Heus LAYER 290 (Layer Starter)",
       "Protein Kasar (%)": 20,
       "Energi Metabolisme (kkal/kg)": 2860,
       "Lemak Kasar (%)": "2.5-7",
       "Serat Kasar (%)": "<6.5",
       "Kalsium (%)": 1,
-      "Fosfor (%)": 0.45,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.45
     },
     {
-      "Merek/Varian Pakan": "LAYER 292 (Layer Grower)",
+      "Merek/Varian Pakan": "De Heus LAYER 292 (Layer Grower)",
       "Protein Kasar (%)": 19,
       "Energi Metabolisme (kkal/kg)": 2887.5,
       "Lemak Kasar (%)": "2.5-7",
       "Serat Kasar (%)": "<7",
       "Kalsium (%)": "1-1.2",
-      "Fosfor (%)": 0.43,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.43
     },
     {
-      "Merek/Varian Pakan": "LAYER D4 (Layer Produksi)",
+      "Merek/Varian Pakan": "De Heus LAYER D4 (Layer Produksi)",
       "Protein Kasar (%)": 18,
       "Energi Metabolisme (kkal/kg)": 2705,
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": 4.575,
-      "Fosfor (%)": 0.415,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.415
     },
     {
-      "Merek/Varian Pakan": "LAYER B4 (Layer Produksi)",
+      "Merek/Varian Pakan": "De Heus LAYER B4 (Layer Produksi)",
       "Protein Kasar (%)": 17,
       "Energi Metabolisme (kkal/kg)": 2705,
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": 4.575,
-      "Fosfor (%)": 0.415,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.415
     },
     {
-      "Merek/Varian Pakan": "Sinta Prima Feedmill",
-      "Protein Kasar (%)": null,
-      "Energi Metabolisme (kkal/kg)": null,
-      "Lemak Kasar (%)": null,
-      "Serat Kasar (%)": null,
-      "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": null
-    },
-    {
-      "Merek/Varian Pakan": "Garda GD-21",
+      "Merek/Varian Pakan": "Sinta Prima Feedmill Garda GD-21",
       "Protein Kasar (%)": "20-22",
       "Energi Metabolisme (kkal/kg)": 3000,
       "Lemak Kasar (%)": "Min 5",
       "Serat Kasar (%)": "Max 5",
       "Kalsium (%)": "0.8-1.1",
-      "Fosfor (%)": "Min 0.5",
-      "Sumber Data": "[15, 16]"
+      "Fosfor (%)": "Min 0.5"
     },
     {
-      "Merek/Varian Pakan": "GT-1 Genta",
+      "Merek/Varian Pakan": "Sinta Prima Feedmill GT-1 Genta",
       "Protein Kasar (%)": 18,
       "Energi Metabolisme (kkal/kg)": 2705,
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": 4.575,
-      "Fosfor (%)": 0.415,
-      "Sumber Data": ""
-    },
-    {
-      "Merek/Varian Pakan": "Malindo Feedmill",
-      "Protein Kasar (%)": null,
-      "Energi Metabolisme (kkal/kg)": null,
-      "Lemak Kasar (%)": null,
-      "Serat Kasar (%)": null,
-      "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": null
+      "Fosfor (%)": 0.415
     },
     {
       "Merek/Varian Pakan": "Malindo Sentrat Ayam",
@@ -644,18 +558,7 @@ const feedData = {
       "Lemak Kasar (%)": 7,
       "Serat Kasar (%)": 4,
       "Kalsium (%)": 0.9,
-      "Fosfor (%)": null,
-      "Sumber Data": ""
-    },
-    {
-      "Merek/Varian Pakan": "New Hope",
-      "Protein Kasar (%)": null,
-      "Energi Metabolisme (kkal/kg)": null,
-      "Lemak Kasar (%)": null,
-      "Serat Kasar (%)": null,
-      "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": null
+      "Fosfor (%)": null
     },
     {
       "Merek/Varian Pakan": "New Hope B12L",
@@ -664,8 +567,7 @@ const feedData = {
       "Lemak Kasar (%)": "Max 3",
       "Serat Kasar (%)": "Max 8",
       "Kalsium (%)": "Max 1.2",
-      "Fosfor (%)": "Max 1.0",
-      "Sumber Data": ""
+      "Fosfor (%)": "Max 1.0"
     },
     {
       "Merek/Varian Pakan": "New Hope PO2",
@@ -674,48 +576,25 @@ const feedData = {
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": ""
+      "Fosfor (%)": null
     },
     {
-      "Merek/Varian Pakan": "CJ Feed & Care",
-      "Protein Kasar (%)": null,
-      "Energi Metabolisme (kkal/kg)": null,
-      "Lemak Kasar (%)": null,
-      "Serat Kasar (%)": null,
-      "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": null
-    },
-    {
-      "Merek/Varian Pakan": "RICHMADE GL-3",
+      "Merek/Varian Pakan": "CJ Feed & Care RICHMADE GL-3",
       "Protein Kasar (%)": 18,
       "Energi Metabolisme (kkal/kg)": 2705,
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": 4.575,
-      "Fosfor (%)": 0.415,
-      "Sumber Data": "[17, 18, 19]"
+      "Fosfor (%)": 0.415
     },
     {
-      "Merek/Varian Pakan": "RICHMADE BRO 1",
+      "Merek/Varian Pakan": "CJ Feed & Care RICHMADE BRO 1",
       "Protein Kasar (%)": 20,
       "Energi Metabolisme (kkal/kg)": 3000,
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": ""
-    },
-    {
-      "Merek/Varian Pakan": "Gold Coin",
-      "Protein Kasar (%)": null,
-      "Energi Metabolisme (kkal/kg)": null,
-      "Lemak Kasar (%)": null,
-      "Serat Kasar (%)": null,
-      "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": null
+      "Fosfor (%)": null
     },
     {
       "Merek/Varian Pakan": "Gold Coin 201 BC",
@@ -724,8 +603,7 @@ const feedData = {
       "Lemak Kasar (%)": "Min 5",
       "Serat Kasar (%)": null,
       "Kalsium (%)": "Terkontrol",
-      "Fosfor (%)": "Terkontrol",
-      "Sumber Data": "[20]"
+      "Fosfor (%)": "Terkontrol"
     },
     {
       "Merek/Varian Pakan": "Gold Coin 202 BC",
@@ -734,68 +612,43 @@ const feedData = {
       "Lemak Kasar (%)": 5,
       "Serat Kasar (%)": 5,
       "Kalsium (%)": 0.95,
-      "Fosfor (%)": 0.45,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.45
     },
     {
-      "Merek/Varian Pakan": "Central Proteina Prima (CPP)",
-      "Protein Kasar (%)": null,
-      "Energi Metabolisme (kkal/kg)": null,
-      "Lemak Kasar (%)": null,
-      "Serat Kasar (%)": null,
-      "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": null
-    },
-    {
-      "Merek/Varian Pakan": "CPP 511B",
+      "Merek/Varian Pakan": "Central Proteina Prima (CPP) 511B",
       "Protein Kasar (%)": 21,
       "Energi Metabolisme (kkal/kg)": 2900,
       "Lemak Kasar (%)": "Min 5",
       "Serat Kasar (%)": "Max 4",
       "Kalsium (%)": "0.80-1.10",
-      "Fosfor (%)": "Min 0.50",
-      "Sumber Data": "[21, 22, 23]"
+      "Fosfor (%)": "Min 0.50"
     },
     {
-      "Merek/Varian Pakan": "CPP 512-VIVO",
+      "Merek/Varian Pakan": "Central Proteina Prima (CPP) 512-VIVO",
       "Protein Kasar (%)": 19,
       "Energi Metabolisme (kkal/kg)": 3100,
       "Lemak Kasar (%)": ">3",
       "Serat Kasar (%)": "<5",
       "Kalsium (%)": "0.9-1.1",
-      "Fosfor (%)": "0.7-0.9",
-      "Sumber Data": ""
+      "Fosfor (%)": "0.7-0.9"
     },
     {
-      "Merek/Varian Pakan": "CPP 311-VIVO",
-      "Protein Kasar (%)": null,
-      "Energi Metabolisme (kkal/kg)": null,
-      "Lemak Kasar (%)": null,
-      "Serat Kasar (%)": null,
-      "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": ""
-    },
-    {
-      "Merek/Varian Pakan": "CPP 124 (Konsentrat)",
+      "Merek/Varian Pakan": "Central Proteina Prima (CPP) 124 (Konsentrat)",
       "Protein Kasar (%)": 32,
       "Energi Metabolisme (kkal/kg)": 1800,
       "Lemak Kasar (%)": 4,
       "Serat Kasar (%)": 2,
       "Kalsium (%)": 10,
-      "Fosfor (%)": null,
-      "Sumber Data": ""
+      "Fosfor (%)": null
     },
     {
-      "Merek/Varian Pakan": "CPP 324KJ",
+      "Merek/Varian Pakan": "Central Proteina Prima (CPP) 324KJ",
       "Protein Kasar (%)": 18,
       "Energi Metabolisme (kkal/kg)": 2705,
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": 4.575,
-      "Fosfor (%)": 0.415,
-      "Sumber Data": ""
+      "Fosfor (%)": 0.415
     },
     {
       "Merek/Varian Pakan": "LAYER CP 51",
@@ -804,18 +657,7 @@ const feedData = {
       "Lemak Kasar (%)": null,
       "Serat Kasar (%)": null,
       "Kalsium (%)": "4.40-4.75",
-      "Fosfor (%)": "0.35-0.48",
-      "Sumber Data": ""
-    },
-    {
-      "Merek/Varian Pakan": "Wonokoyo",
-      "Protein Kasar (%)": null,
-      "Energi Metabolisme (kkal/kg)": null,
-      "Lemak Kasar (%)": null,
-      "Serat Kasar (%)": null,
-      "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": null
+      "Fosfor (%)": "0.35-0.48"
     },
     {
       "Merek/Varian Pakan": "Wonokoyo BR BW",
@@ -824,8 +666,7 @@ const feedData = {
       "Lemak Kasar (%)": 3,
       "Serat Kasar (%)": 6,
       "Kalsium (%)": null,
-      "Fosfor (%)": null,
-      "Sumber Data": "[24, 25]"
+      "Fosfor (%)": null
     }
   ]
 };
